@@ -3,9 +3,9 @@
 raw_data_dir="raw_data"
 
 declare -a class_names=(
-	"neutral"
-	"drawings"
-	"sexy"
+	# "neutral"
+	# "drawings"
+	# "sexy"
 	"porn"
 	"hentai"
 	)
