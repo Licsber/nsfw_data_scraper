@@ -1,7 +1,7 @@
 #!/bin/bash
 
-raw_data_dir="/root/nsfw_data_scraper/raw_data"
-data_dir="/root/nsfw_data_scraper/data"
+raw_data_dir="raw_data"
+data_dir="data"
 
 declare -a class_names=(
 	"neutral"
