@@ -10,6 +10,7 @@ WORKDIR /root/nsfw_data_scraper
 COPY ./ /root/nsfw_data_scraper
 COPY ./scripts/rip.properties /root/.config/ripme/rip.properties
 
-RUN bash /root/nsfw_data_scraper/scripts/runall.sh
+RUN bash /root/nsfw_data_scraper/download_from_author.sh
+RUN bash /root/nsfw_data_scraper/gen_datasets.sh
 
 ENTRYPOINT ["/bin/bash"]

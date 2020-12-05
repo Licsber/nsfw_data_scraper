@@ -18,17 +18,11 @@ jobs:
           sudo mkdir -p .config/ripme
           sudo cp scripts/rip.properties .config/ripme/rip.properties
 
-      - name: Run get_urls
-        run: sudo bash scripts/1_get_urls_.sh scripts/1_get_urls_.sh
-
       - name: Run download_from_urls
-        run: sudo bash scripts/2_download_from_urls_.sh scripts/2_download_from_urls_.sh
+        run: sudo bash download_from_author.sh
 
-      - name: Run create_train
-        run: sudo bash scripts/5_create_train_.sh scripts/5_create_train_.sh
-
-      - name: Run create_train
-        run: sudo bash scripts/6_create_test_.sh scripts/6_create_test_.sh
+      - name: Run gen datasets
+        run: sudo bash gen_datasets.sh
 
       - name: Upload data
         uses: actions/upload-artifact@v2
