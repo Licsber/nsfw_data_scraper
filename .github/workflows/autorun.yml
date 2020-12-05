@@ -21,8 +21,9 @@ jobs:
           image: nsfw
           shell: bash
           run: ｜
+            ls
             chmod -R +x scripts
-            scripts/runall.sh
+            bash scripts/runall.sh
 
       - name: Upload data
         uses: actions/upload-artifact@v2
