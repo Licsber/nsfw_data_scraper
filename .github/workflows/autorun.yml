@@ -12,7 +12,7 @@ jobs:
 
       - name: Init environments
         run: |
-          apt update
+          sudo apt update
           sudo apt upgrade -y
           sudo apt install wget rsync imagemagick default-jre -y
           sudo mkdir -p .config/ripme
