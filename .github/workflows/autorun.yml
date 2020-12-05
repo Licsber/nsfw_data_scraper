@@ -4,26 +4,22 @@ on: workflow_dispatch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Init project
         uses: actions/checkout@v2
 
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v2.2.0
-        with:
-          tags: nsfw
+      - name: Init environments
+        run: |
+          apt update
+          apt upgrade -y
+          apt install wget rsync imagemagick default-jre -y
+          mkdir -p .config/ripme
+          cp scripts/rip.properties .config/ripme/rip.properties
 
-      - name: Run docker image
-        uses: addnab/docker-run-action@v1
-        with:
-          image: nsfw
-          shell: bash
-          run: ｜
-            ls
-            chmod -R +x scripts
-            bash scripts/runall.sh
+      - name: Run all scripts
+        run: bash scripts/runall.sh
 
       - name: Upload data
         uses: actions/upload-artifact@v2
