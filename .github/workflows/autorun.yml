@@ -7,21 +7,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Init project
+        uses: actions/checkout@v2
 
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.2.0
         with:
           tags: nsfw
-      
+
       - name: Run docker image
         uses: addnab/docker-run-action@v1
         with:
           image: nsfw
           shell: bash
-      
-      - name: Upload Data
+          run: scripts/runall.sh
+
+      - name: Upload data
         uses: actions/upload-artifact@v2
         with:
           name: nfsw
+          path: data
+          if-no-files-found: ignore
+
+      - name: Delete data
+        run: rm -rf data
+
+      - name: Upload debug data
+        uses: actions/upload-artifact@v2
+        with:
+          name: debug
           path: .
