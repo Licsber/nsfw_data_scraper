@@ -13,13 +13,13 @@ jobs:
       - name: Init environments
         run: |
           apt update
-          apt upgrade -y
-          apt install wget rsync imagemagick default-jre -y
-          mkdir -p .config/ripme
-          cp scripts/rip.properties .config/ripme/rip.properties
+          sudo apt upgrade -y
+          sudo apt install wget rsync imagemagick default-jre -y
+          sudo mkdir -p .config/ripme
+          sudo cp scripts/rip.properties .config/ripme/rip.properties
 
       - name: Run all scripts
-        run: bash scripts/runall.sh
+        run: sudo bash scripts/runall.sh
 
       - name: Upload data
         uses: actions/upload-artifact@v2
