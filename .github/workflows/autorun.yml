@@ -18,3 +18,10 @@ jobs:
         uses: addnab/docker-run-action@v1
         with:
           image: nsfw
+          shell: bash
+      
+      - name: Upload Data
+        uses: actions/upload-artifact@v2
+        with:
+          name: nfsw
+          path: .
