@@ -32,7 +32,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Delete data
-        run: rm -rf data
+        run: sudo rm -rf data
 
       - name: Upload debug data
         uses: actions/upload-artifact@v2

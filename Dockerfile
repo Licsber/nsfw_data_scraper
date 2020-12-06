@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 
-RUN apt update \
-    && apt upgrade -y \
-    && apt install wget rsync imagemagick default-jre -y
+RUN apt update  && \
+    apt upgrade -y && \
+    apt install wget rsync imagemagick default-jre uuid-runtime -y
 
 RUN mkdir /root/nsfw_data_scraper
 
